@@ -1,0 +1,54 @@
+﻿﻿@{
+    ViewData["Title"] = "Início";
+}
+
+@model List<Tarefa>
+
+<h2 class="text-center titulo-app"><i class="bi bi-check-square-fill"></i> Lista de Tarefas</h2>
+
+<br />
+
+<table class="table text-center">
+    <tr>
+        <th>Tarefa</th>
+        <th>Status</th>
+        <th>Data de inicio</th>
+        <th>Data de conclusão</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var tarefa in Model)
+        {
+            <tr>
+                <td>@tarefa.NomeTarefa</td>
+                @if (@tarefa.StatusTarefa == true)
+                {
+                    <td><p class="text-success">Concluída</p></td>
+                    <td>@Html.DisplayFor(modelItem => tarefa.DataInicioTarefa)</td>
+                    <td>@Html.DisplayFor(modelItem => tarefa.DataFinalTarefa)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-info"><i class="bi bi-pencil-square"></i> Renomear</a>
+                        <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> Deletar</a>
+                        <a asp-action="Iniciar" asp-route-id="@tarefa.TarefaId" class="btn btn-warning"><i class="bi bi-trash3-fill"></i> Desfazer</a>
+                        
+                    </td>
+                }
+                else
+                {
+                    <td><p class="text-warning">A Fazer</p></td>
+                    <td>@Html.DisplayFor(modelItem => tarefa.DataInicioTarefa)</td>
+                    <td>@Html.DisplayFor(modelItem => tarefa.DataFinalTarefa)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@tarefa.TarefaId" class="btn btn-info"><i class="bi bi-pencil-square"></i> Renomear</a>
+                        <a asp-action="Delete" asp-route-id="@tarefa.TarefaId" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> Deletar</a>
+                        <a asp-action="Finalizar" asp-route-id="@tarefa.TarefaId" class="btn btn-success"><i class="bi bi-trash3-fill"></i> Finalizar</a>
+                        
+                    </td>
+                }
+                
+                
+
+            </tr>
+        }
+    </tbody>
+</table>

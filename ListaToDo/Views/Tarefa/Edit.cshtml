@@ -1,0 +1,12 @@
+﻿@model Tarefa
+<h2 class="text-center titulo-app"><i class="bi bi-check-square-fill"></i> Tarefas</h2>
+<br />
+<h5 class="text-center color-green">Editar nome da tarefa</h5>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="TarefaId" />
+    <div class="d-flex flex-row justify-content-between nova-tarefa-container">
+        <input class="align-self-center form-control input-nova-tarefa" type="text" placeholder="" aria-label="default input example" asp-for="NomeTarefa">
+        <button type="submit" class="btn-add-tarefa"><i class="bi bi-check"></i>Salvar</button>
+    </div>
+</form>

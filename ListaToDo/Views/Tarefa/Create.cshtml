@@ -1,0 +1,10 @@
+﻿@model Tarefa
+
+<h2 class="text-center titulo-app"><i class="bi bi-check-square-fill"></i> Lista de Tarefas</h2>
+<br />
+<form asp-action="Create" method="post">
+    <div class="d-flex flex-row justify-content-between nova-tarefa-container">
+        <input class="align-self-center form-control input-nova-tarefa" type="text" placeholder="Adicionar nova tarefa na lista ToDo" aria-label="default input example" asp-for="NomeTarefa">
+        <button type="submit" class="btn-add-tarefa">Adicionar</button>
+    </div>
+</form>
